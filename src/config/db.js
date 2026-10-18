@@ -8,8 +8,10 @@ if (!uri) {
   process.exit(1);
 }
 
-// One client instance = one connection shared by the whole app
-const client = new MongoClient(uri);
+// One client instance = one connection shared by the whole app.
+// serverSelectionTimeoutMS: fail after 5s instead of MongoDB's default
+// 30s, so a down database produces a quick, clear error.
+const client = new MongoClient(uri, { serverSelectionTimeoutMS: 5000 });
 
 async function connectToDb() {
   try {
