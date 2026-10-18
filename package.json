@@ -6,7 +6,10 @@
   "scripts": {
     "start": "node src/server.js",
     "dev": "nodemon src/server.js",
-    "seed": "node scripts/seed.js"
+    "seed": "node scripts/seed.js",
+    "build": "npm --prefix client run build",
+    "client": "npm --prefix client run dev",
+    "setup": "npm --prefix client install && npm run build"
   },
   "keywords": ["mongodb", "query-analyzer", "express"],
   "author": "",
