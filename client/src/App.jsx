@@ -14,6 +14,7 @@ import {
   Paper,
 } from "@mui/material";
 import PlayArrowRoundedIcon from "@mui/icons-material/PlayArrowRounded";
+import IndexManager from "./components/IndexManager";
 
 // The 5 statistics we display, with human-friendly labels.
 // We map over this instead of repeating card markup 5 times.
@@ -214,6 +215,11 @@ export default function App() {
           </Box>
         </Box>
       )}
+
+      {/* Index manager — create/drop indexes, then re-analyze */}
+      <Box sx={{ mt: 4 }}>
+        <IndexManager />
+      </Box>
     </Container>
   );
 }

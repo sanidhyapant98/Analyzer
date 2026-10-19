@@ -3,6 +3,7 @@ const path = require("path");
 const express = require("express");
 const { connectToDb } = require("./config/db");
 const analyzeRoutes = require("./routes/analyze.routes");
+const indexRoutes = require("./routes/index.routes");
 
 const app = express();
 
@@ -11,6 +12,7 @@ app.use(express.json({ limit: "10kb" }));
 
 // API routes
 app.use("/api", analyzeRoutes);
+app.use("/api", indexRoutes);
 
 // Unknown API route (e.g. /api/whatever) → JSON 404.
 // Registered before static so API paths never return HTML.
